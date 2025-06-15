@@ -9,7 +9,6 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 class Kernel extends HttpKernel
 {
     protected $middleware = [
-        // \App\Http\Middleware\TrustHosts::class,
         \Illuminate\Http\Middleware\HandleCors::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Presenter\Http\Middleware\TrimStrings::class,
@@ -23,7 +22,6 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-
         'api' => [
             \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             \Illuminate\Routing\Middleware\ThrottleRequests::class . ':api',
@@ -51,7 +49,6 @@ class Kernel extends HttpKernel
     public function bootstrap(): void
     {
         parent::bootstrap();
-
         $this->mapRoutes();
     }
 }
